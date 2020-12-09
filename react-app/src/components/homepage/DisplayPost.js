@@ -44,6 +44,7 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
         })()
     }, [currentComments])
 
+
     // Handles the button click when a user likes a post
     const handleLike = async () => {
         const response = await likePost(id, currentUser.id)

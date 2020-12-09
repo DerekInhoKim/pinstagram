@@ -5,7 +5,7 @@ const initialState = []
 const followerReducer = (state = initialState, action) => {
     switch(action.type){
         case SET_FOLLOWING:
-            return [...action.following];
+            return action.following;
         default: {
             return state
         }
