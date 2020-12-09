@@ -2,7 +2,10 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+# followerId is the id of the user that is the follower
+# followeringId is the user that is being followed
 followers = db.Table('followers',
+    db.Model.metadata,
     db.Column('followerId', db.Integer,
               db.ForeignKey('users.id'), primary_key=True),
     db.Column('followingId', db.Integer,
@@ -24,11 +27,11 @@ class User(db.Model, UserMixin):
     posts = db.relationship('Post', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
     likes = db.relationship('Like', back_populates='user')
-    followed = db.relationship(
-        'User', secondary=followers,
+    following = db.relationship(
+        'User', followers,
         # .c is a collection of the individual column with that name
-        primaryjoin=(followers.c.followerId == id),
-        secondaryjoin=(followers.c.followingId == id),
+        primaryjoin=followers.c.followerId == id,
+        secondaryjoin=followers.c.followingId == id,
         # Followed by backref is how to access the following id
         backref='followed_by'
     )
@@ -53,6 +56,19 @@ class User(db.Model, UserMixin):
             "about": self.about,
             "profilePicture": self.profilePicture
         }
+
+    def to_follow_dict(self):
+        return {
+            "id": self.id,
+            "fullname": self.fullname,
+            "username": self.username,
+            "email": self.email,
+            "about": self.about,
+            "profilePicture": self.profilePicture,
+            "followers": [user.to_dict() for user in self.followed_by],
+            "following": [user.to_dict() for user in self.following],
+        }
+
 
     # to_joined_dict only keeps track of posts. Adjust accordingly
     def to_joined_dict(self):

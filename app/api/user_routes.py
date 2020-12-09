@@ -17,3 +17,9 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+# Route will return all followers/following for a user
+@user_routes.route('/follow/<int:id>')
+def follow(id):
+    user = User.query.get(id)
+    return user.to_follow_dict()
