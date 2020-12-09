@@ -10,6 +10,9 @@ import CreatePost from './components/createpost/CreatePost'
 import UserPage from './components/userpage/UserPage'
 import { authenticate } from "./services/auth";
 import {useDispatch} from 'react-redux'
+import {getUserFollowers} from './services/user'
+import {setFollowers} from './redux/actions/followers'
+import {setFollowing} from './redux/actions/following'
 import {setUser} from './redux/actions/users'
 
 function App() {
@@ -23,6 +26,10 @@ function App() {
       if (!user.errors) {
         dispatch(setUser(user));
         setAuthenticated(true);
+
+        const userFollow = await getUserFollowers(user.id)
+        dispatch(setFollowers(userFollow.followers))
+        dispatch(setFollowing(userFollow.following))
       }
       setLoaded(true);
     })();
