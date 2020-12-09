@@ -17,3 +17,10 @@ export const getFollowers = async (userId) => {
     const response = await fetch(`/api/follows/${userId}/followers`)
     return await response.json()
 }
+
+export const followUser = async (followerId, followingId) => {
+    const response = await fetch(`/api/follows/${followerId}/follow/${followingId}`, {
+        method: 'POST',
+    })
+    return await response.json()
+}

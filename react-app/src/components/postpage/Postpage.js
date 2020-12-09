@@ -14,6 +14,7 @@ const PostPage = () => {
     // Use effect will set the local state of the post that we're looking at
     useEffect(() => {
         (async () => {
+            // debugger
             const post = await getPost(postId)
             if (post){
                 dispatch(setPostStore(post.post))
@@ -22,6 +23,7 @@ const PostPage = () => {
             }
         })()
     }, [postId])
+
 
     return (
         <div className='postpage_post'>

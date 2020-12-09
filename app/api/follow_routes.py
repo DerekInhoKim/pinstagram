@@ -31,8 +31,9 @@ def followingUser(followerId, followingId):
 # This route will add or remove a follower
 @follow_routes.route('/<int:followerId>/follow/<int:followingId>', methods=['POST'])
 def followRoute(followerId, followingId):
-    follower = User.query.get(followerId)
-    followings = User.query.get(followingId)
+    # Following and follwerIds are switched. Fix this
+    followings = User.query.get(followerId)
+    follower = User.query.get(followingId)
 
 
     if follower in followings.following:
