@@ -1,0 +1,73 @@
+/* TODO Add site wide styles */
+.post_header_image{
+    max-width: 50px;
+    border-radius: 50%;
+}
+
+.homepage_post_image {
+    width: 400px;
+}
+
+.postpage_post_image {
+    width: 400px;
+}
+
+.usercard_container {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.usercard_image {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.comment_image {
+    max-width: 50px;
+    border-radius: 50%;
+}
+
+.postpage_post {
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+.postpage_post_container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+
+}
+
+.userpage_image {
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+.userpage_post_image {
+    width: 40%;
+    margin: 40px;
+}
+
+.userpage_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.userpage_header_container {
+    display: flex;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.userpage_header_text {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
