@@ -67,6 +67,11 @@ const UserPageHeader = ({userId}) => {
 
     const handleProfilePicture = () => {
         history.push('/profilePicture')
+
+    }
+
+    const handleEdit = () => {
+        history.push('/edit/profile')
     }
 
     // src={user.profilePicture ? user.profilePicture : "Mymushi.jpg"}
@@ -82,6 +87,7 @@ const UserPageHeader = ({userId}) => {
                     {user.username} {myPage ? '' : isFollowingStatus ?
                     <button onClick={handleFollow}>Following</button> :
                     <button onClick={handleFollow}>Follow</button>}
+                    {myPage ? <button onClick={handleEdit}>edit</button> : ''}
                 </div>
                 <div>
                     posts {posts} followers {followers} following {following}

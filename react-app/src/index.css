@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 .post_header_image{
     max-width: 50px;
-    border-radius: 50%;
+    clip-path: circle();
 }
 
 .homepage_post_image {
@@ -9,7 +9,9 @@
 }
 
 .postpage_post_image {
-    width: 400px;
+    max-width: 50%;
+    object-fit: cover;
+    padding-right: 20px;
 }
 
 .usercard_container {
@@ -20,12 +22,12 @@
 
 .usercard_image {
     max-width: 100px;
-    border-radius: 50%;
+    clip-path: circle();
 }
 
 .comment_image {
     max-width: 50px;
-    border-radius: 50%;
+    clip-path: circle();
 }
 
 .postpage_post {
@@ -43,12 +45,12 @@
 
 .userpage_image {
     max-width: 200px;
-    border-radius: 50%;
+    clip-path: circle();
 }
 
 .my_userpage_image {
     max-width: 200px;
-    border-radius: 50%;
+    clip-path: circle();
 }
 
 .userpage_image_container {
@@ -82,6 +84,7 @@
     width: 300px;
     height: 300px;
     object-fit: cover;
+    clip-path: polygon(10% 10%,90% 10%,90% 90%,10% 90%);
 
 }
 
