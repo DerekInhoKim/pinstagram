@@ -5,12 +5,6 @@ import DisplayPostContent from './DisplayPostContent'
 const DisplayPostPage = () => {
     const post = useSelector(state => state.posts)
 
-    if (!post){
-        return (
-            null
-        )
-    }
-
     return (
         <div className='postpage_post_container'>
             <div>

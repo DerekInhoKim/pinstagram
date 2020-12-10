@@ -8,8 +8,12 @@ import HomePage from './components/homepage/Homepage'
 import PostPage from './components/postpage/Postpage'
 import CreatePost from './components/createpost/CreatePost'
 import UserPage from './components/userpage/UserPage'
+import DiscoverPage from './components/discoverpage/DiscoverPage'
 import { authenticate } from "./services/auth";
 import {useDispatch} from 'react-redux'
+import {getUserFollowers} from './services/user'
+import {setFollowers} from './redux/actions/followers'
+import {setFollowing} from './redux/actions/following'
 import {setUser} from './redux/actions/users'
 
 function App() {
@@ -23,6 +27,10 @@ function App() {
       if (!user.errors) {
         dispatch(setUser(user));
         setAuthenticated(true);
+
+        const userFollow = await getUserFollowers(user.id)
+        dispatch(setFollowers(userFollow.followers))
+        dispatch(setFollowing(userFollow.following))
       }
       setLoaded(true);
     })();
@@ -44,7 +52,7 @@ function App() {
       <Route path="/sign-up" exact={true}>
         <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </Route>
-      <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+      <ProtectedRoute path="/user/:userId" exact={true} authenticated={authenticated}>
         <UserPage />
       </ProtectedRoute>
       <ProtectedRoute path="/post/create" exact={true} authenticated={authenticated}>
@@ -52,6 +60,9 @@ function App() {
       </ProtectedRoute>
       <ProtectedRoute path="/p/:postId" exact={true} authenticated={authenticated}>
         <PostPage />
+      </ProtectedRoute>
+      <ProtectedRoute path="/discover" exact={true} authenticated={authenticated}>
+        <DiscoverPage />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <HomePage/>

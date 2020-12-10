@@ -8,6 +8,7 @@ class Comment(db.Model):
     message = db.Column(db.String(255), nullable=False)
     postId = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    createdAt = db.Column(db.DateTime, server_default=db.func.now())
 
     post = db.relationship('Post', back_populates='comments')
     user = db.relationship('User', back_populates='comments')
@@ -16,6 +17,7 @@ class Comment(db.Model):
         return {
             "id": self.id,
             "message": self.message,
+            "createdAt": self.createdAt
 
         }
 
@@ -23,5 +25,6 @@ class Comment(db.Model):
         return {
             "id": self.id,
             "message": self.message,
+            "createdAt": self.createdAt,
             "user": self.user.to_dict()
         }

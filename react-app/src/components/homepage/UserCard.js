@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
 const UserCard = () => {
@@ -6,9 +7,13 @@ const UserCard = () => {
 
     return (
         <div className='usercard_container'>
-            <img className='usercard_image' src={currentUser.profilePicture} alt=""/>
+            <Link to={`/user/${currentUser.id}`}>
+                <img className='usercard_image' src={currentUser.profilePicture} alt=""/>
+            </Link>
             <div className='usercard_titles'>
-                <div>{currentUser.username}</div>
+                <Link to={`/user/${currentUser.id}`}>
+                    <div>{currentUser.username}</div>
+                </Link>
                 <div>{currentUser.fullname}</div>
             </div>
         </div>

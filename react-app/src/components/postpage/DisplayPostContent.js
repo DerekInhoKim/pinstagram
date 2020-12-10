@@ -53,6 +53,7 @@ const DisplayPostContent = () => {
         setMounted(true)
     }, [post.id])
 
+
     // Used to display each comment
     const commentComponent = comments.map(comment => {
         return (

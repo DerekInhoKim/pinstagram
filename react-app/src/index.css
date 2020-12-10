@@ -46,10 +46,21 @@
     border-radius: 50%;
 }
 
-.userpage_post_image {
-    width: 40%;
-    margin: 40px;
+.userpage_post_image_container {
+    margin: 10px;
 }
+
+.userpage_post_image{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
+}
+
+.userpage_post_container {
+    display: flex;
+}
+
 
 .userpage_container {
     display: flex;

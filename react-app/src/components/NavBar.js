@@ -22,8 +22,8 @@ const NavBar = ({ setAuthenticated }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
+          <NavLink to="/discover" exact={true} activeClassName="active">
+            Discover
           </NavLink>
         </li>
         <li>

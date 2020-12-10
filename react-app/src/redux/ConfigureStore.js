@@ -3,6 +3,8 @@ import users from './reducers/users'
 import comments from './reducers/comments'
 import posts from './reducers/posts'
 import postUser from './reducers/postUser'
+import followers from './reducers/followers'
+import following from './reducers/following'
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -12,7 +14,9 @@ const reducer = combineReducers({
     users,
     comments,
     posts,
-    postUser
+    postUser,
+    followers,
+    following
 })
 
 

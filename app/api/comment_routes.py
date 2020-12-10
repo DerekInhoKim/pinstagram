@@ -27,5 +27,5 @@ def createComment():
 
 @comments_route.route('/post/<int:postId>', methods=['GET'])
 def getComments(postId):
-    comments = Comment.query.join(User).filter(Comment.postId == postId).all()
+    comments = Comment.query.join(User).filter(Comment.postId == postId).order_by(Comment.createdAt.desc()).all()
     return {'comments': [comment.to_joined_dict() for comment in comments]}
