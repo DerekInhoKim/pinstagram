@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {isFollowing, followUser} from '../../services/following'
 
 const PostHeader = () => {
@@ -25,8 +26,10 @@ const PostHeader = () => {
 
     return (
         <div className="post_header">
-            <img className="post_header_image" src={postUser.profilePicture} alt=""/>
-            <span className="post_header_username">{postUser.username}</span>
+            <Link to={`/user/${postUser.id}`}>
+                <img className="post_header_image" src={postUser.profilePicture} alt=""/>
+                <span className="post_header_username">{postUser.username}</span>
+            </Link>
             <span>{following ?
             <button onClick={handleFollow}>Following</button> :
             <button onClick={handleFollow}>Follow</button>}</span>
