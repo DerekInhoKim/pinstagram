@@ -15,6 +15,17 @@ def followingPosts(id):
     return {'posts': [post.to_user_dict() for post in posts]}
 
 
+# This route will return all posts that a user is not following
+@follow_routes.route('/<int:id>/unfollowed/posts', methods=['GET'])
+def notFollowingPosts(id):
+    users = User.query.get(id)
+    # followingUsers is a list of users that user is following
+    followingUsers = [following.id for following in users.following]
+    # This query filters to find Posts where the userId is NOT in followingUsers, and is not the user themselves
+    posts = Post.query.join(User).filter(~Post.userId.in_(followingUsers)).filter(Post.userId != id).all()
+    return {'posts': [post.to_user_dict() for post in posts]}
+
+
 # This route will determine if a user is following another user
 @follow_routes.route('/<int:followerId>/following/<int:followingId>',
                      methods=['GET'])
@@ -39,12 +50,12 @@ def followRoute(followerId, followingId):
     if follower in followings.following:
         followings.following.remove(follower)
         db.session.commit()
-        return followings.to_dict()
+        return {'isFollowing': False}
 
     else:
         followings.following.append(follower)
         db.session.commit()
-        return followings.to_dict()
+        return {'isFollowing': True}
     return {'errors': 'something went wrong'}
 
 

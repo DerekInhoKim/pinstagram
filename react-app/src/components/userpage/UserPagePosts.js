@@ -13,8 +13,8 @@ const UserPagePosts = ({userId}) => {
 
     const postsComponent = posts.map(post => {
         return (
-            <div className="userpage_post_image">
-                <img src={post.content} alt="postImage"/>
+            <div className="userpage_post_image_container">
+                <img className="userpage_post_image" src={post.content} alt="postImage"/>
             </div>
         )
     })

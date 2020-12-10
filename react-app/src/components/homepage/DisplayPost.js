@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import PostHeader from './PostHeader'
-import {getPostLikes, likePost, userLikesPost, dislikePost} from '../../services/likes'
-import {getComments} from '../../services/comments'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
+import PostHeader from './PostHeader'
 import DisplayComments from '../comments/DisplayComments'
 import CommentForm from '../comments/CommentForm'
+import {getPostLikes, likePost, userLikesPost, dislikePost} from '../../services/likes'
+import {getComments} from '../../services/comments'
 
 const DisplayPost = ({id, caption, content, createdAt, user}) => {
     const currentUser = useSelector(state => state.users.user)
@@ -71,7 +72,9 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
         <div className="homepage_post">
             <PostHeader user={user}/>
             <h1>{caption}</h1>
-            <img className="homepage_post_image" src={content} width="500" alt="content"/>
+            <Link to={`/p/${id}`}>
+                <img className="homepage_post_image" src={content} alt="content"/>
+            </Link>
             <h3>{createdAt}</h3>
             <h3>{likes.length}</h3>
             <div>
