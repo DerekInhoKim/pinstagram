@@ -47,3 +47,18 @@ export const signUp = async (fullname, username, email, password) => {
   });
   return await response.json();
 }
+
+export const editUser = async (fullname, username, about) => {
+  const response = await fetch("/api/auth/edit", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      fullname,
+      username,
+      about
+    })
+  })
+  return await response.json()
+}
