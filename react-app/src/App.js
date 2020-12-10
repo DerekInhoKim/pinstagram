@@ -9,6 +9,7 @@ import PostPage from './components/postpage/Postpage'
 import CreatePost from './components/createpost/CreatePost'
 import UserPage from './components/userpage/UserPage'
 import DiscoverPage from './components/discoverpage/DiscoverPage'
+import ProfilePictureUpload from './components/userpage/ProfilePicture'
 import { authenticate } from "./services/auth";
 import {useDispatch} from 'react-redux'
 import {getUserFollowers} from './services/user'
@@ -63,6 +64,9 @@ function App() {
       </ProtectedRoute>
       <ProtectedRoute path="/discover" exact={true} authenticated={authenticated}>
         <DiscoverPage />
+      </ProtectedRoute>
+      <ProtectedRoute path="/profilePicture" exact={true} authenticated={authenticated}>
+        <ProfilePictureUpload />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <HomePage/>

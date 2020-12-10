@@ -5,11 +5,11 @@ import { login } from "../../services/auth";
 import {setUser} from '../../redux/actions/users'
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
+  const currentUser = useSelector(state => state.users.user)
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch()
-  const currentUser = useSelector(state => state.users.user)
 
   const onLogin = async (e) => {
     e.preventDefault();

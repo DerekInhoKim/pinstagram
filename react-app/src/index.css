@@ -46,6 +46,34 @@
     border-radius: 50%;
 }
 
+.my_userpage_image {
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+.userpage_image_container {
+    position: relative;
+    text-align: center;
+}
+
+.my_userpage_image_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+
+.userpage_image_container:hover .my_userpage_image_text{
+    visibility: visible;
+}
+
+.my_userpage_image:hover {
+    background-color: black;
+    opacity: 40%;
+}
+
 .userpage_post_image_container {
     margin: 10px;
 }

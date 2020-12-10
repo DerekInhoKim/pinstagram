@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import {getUser} from '../../services/user'
 import {getPosts} from '../../services/post'
 import {getFollowing, getFollowers, isFollowing, followUser} from '../../services/following'
+import emptyPicture from '../../images/blank-profile-picture.png'
 
 const UserPageHeader = ({userId}) => {
     const currentUser = useSelector(state => state.users.user)
+    let history = useHistory()
 
     const [user, setUser] = useState({})
     const [myPage, setMyPage] = useState(false)
@@ -47,6 +50,10 @@ const UserPageHeader = ({userId}) => {
     // This use effect checks to see if the currentuser is following the user
     useEffect(() => {
         (async () => {
+            // Sets the number of followers the user has
+            const followerRes = await getFollowers(userId)
+            setFollowers(followerRes.follow.length)
+
             const followRes = await isFollowing(currentUser.id, userId)
             setIsFollowingStatus(followRes.following)
         })()
@@ -58,9 +65,18 @@ const UserPageHeader = ({userId}) => {
         setIsFollowingState(followingStatus)
     }
 
+    const handleProfilePicture = () => {
+        history.push('/profilePicture')
+    }
+
+    // src={user.profilePicture ? user.profilePicture : "Mymushi.jpg"}
+
     return (
         <div className="userpage_header_container">
-            <img className="userpage_image" src={user.profilePicture} alt="user profile photo"/>
+            <div className="userpage_image_container" >
+                <div className={myPage ? "my_userpage_image_text" : "username_image_text"} >Change Photo</div>
+                <img onClick={myPage ? handleProfilePicture : null } className={myPage ? "my_userpage_image" : "userpage_image"} src={user.profilePicture ? user.profilePicture : emptyPicture} alt="user profile photo"/>
+            </div>
             <div className="userpage_header_text">
                 <div>
                     {user.username} {myPage ? '' : isFollowingStatus ?
@@ -72,6 +88,9 @@ const UserPageHeader = ({userId}) => {
                 </div>
                 <div>
                     {user.fullname}
+                </div>
+                <div>
+                    {user.about}
                 </div>
             </div>
         </div>
