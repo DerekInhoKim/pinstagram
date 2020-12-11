@@ -1,4 +1,8 @@
 /* TODO Add site wide styles */
+body {
+    background-color: #fafafa;
+}
+
 .post_header_image{
     max-width: 50px;
     clip-path: circle();
@@ -19,6 +23,44 @@
     display: flex;
     align-items: center;
 }
+
+.login_page_container{
+    display: flex;
+    justify-content: space-evenly;
+    /* width: 40rem;
+    height: 40rem; */
+}
+
+.signin_form_container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.login_form_container{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    align-content: center;
+    /* position: relative;
+    top: 20rem;
+    left: 10rem;
+    bottom: 10rem; */
+
+}
+
+.login_page_image {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    /* width: 15rem; */
+}
+
+.login_form_header {
+    font-family: Pacifico, cursive;
+    font-size: 35px;
+}
+
 
 .usercard_image {
     max-width: 100px;

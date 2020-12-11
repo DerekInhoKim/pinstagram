@@ -12,7 +12,7 @@ Users will be able to like and comment on another user's posts, as well as follo
 * The ability for users to create their own drawings to be posted to the website
 * Allow users to like/comment on a post (CRUD)
 * Allow users to follow other users to recieve updates on their homepage with the latest pictures
-* Discovery page, for user's to see posts from users that they don't currently follow.
+* Discovery page, for user's to see posts from users that they don't currently follow
 * Bookmarks for users to easily track of posts they like
 
 **Stretch Goals**
