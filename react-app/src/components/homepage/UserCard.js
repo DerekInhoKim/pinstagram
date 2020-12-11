@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
+
 const UserCard = () => {
     const currentUser = useSelector(state => state.users.user)
 
@@ -12,9 +13,9 @@ const UserCard = () => {
             </Link>
             <div className='usercard_titles'>
                 <Link to={`/user/${currentUser.id}`}>
-                    <div>{currentUser.username}</div>
+                    <div className='usercard_username'>{currentUser.username}</div>
                 </Link>
-                <div>{currentUser.fullname}</div>
+                <div className='usercard_fullname'>{currentUser.fullname}</div>
             </div>
         </div>
     )

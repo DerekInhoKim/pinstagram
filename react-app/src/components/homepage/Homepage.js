@@ -29,9 +29,15 @@ const HomePage = () => {
         )
     }
     return (
-        <div>
-            <UserCard />
-            <div>{postComponent}</div>
+        <div className="homepage_container">
+            <div className="homepage_center_container">
+                <div className="homepage_post_container">
+                    {postComponent}
+                </div>
+                <div className="homepage_user_container">
+                    <UserCard />
+                </div>
+            </div>
         </div>
     )
 

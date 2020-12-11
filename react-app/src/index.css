@@ -9,6 +9,7 @@ body {
 }
 
 .homepage_post_image {
+    justify-content: center;
     width: 400px;
 }
 
@@ -20,21 +21,34 @@ body {
 
 .usercard_container {
     border: 1px solid black;
+    position: fixed;
     display: flex;
     align-items: center;
+    width: 40rem;
+}
+
+.usercard_titles {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.usercard_fullname {
+    color: gray;
+}
+
+.usercard_username {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .login_page_container{
     display: flex;
     justify-content: space-evenly;
-    /* width: 40rem;
-    height: 40rem; */
 }
 
 .signin_form_container {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -43,19 +57,12 @@ body {
     justify-content: flex-end;
     width: 50%;
     align-content: center;
-    /* margin-bottom: 2rem; */
-    /* position: relative;
-    top: 20rem;
-    left: 10rem;
-    bottom: 10rem; */
-
 }
 
 .login_page_image {
     width: 50%;
     display: flex;
     justify-content: flex-end;
-    /* width: 15rem; */
 }
 
 .login_form_header {
@@ -69,7 +76,6 @@ body {
     font-size: 35px;
     margin-top: 40px;
 }
-
 
 .usercard_image {
     max-width: 100px;
@@ -91,7 +97,6 @@ body {
     display: flex;
     justify-content: center;
     border: 1px solid black;
-
 }
 
 .userpage_image {
@@ -116,7 +121,6 @@ body {
     transform: translate(-50%, -50%);
     visibility: hidden;
 }
-
 
 .userpage_image_container:hover .my_userpage_image_text{
     visibility: visible;
@@ -143,7 +147,6 @@ body {
     display: flex;
 }
 
-
 .userpage_container {
     display: flex;
     flex-direction: column;
@@ -163,4 +166,36 @@ body {
     border: 1px solid black;
     justify-content: space-around;
     margin-bottom: 30px;
+}
+
+.homepage_container {
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+
+}
+
+.homepage_center_container {
+    display: flex;
+    border: 1px solid red;
+    width: 60rem;
+}
+
+.homepage_post_container {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    width: 70rem;
+}
+
+.homepage_post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage_user_container {
+    width: 30rem;
+
 }
