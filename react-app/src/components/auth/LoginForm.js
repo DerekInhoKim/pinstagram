@@ -14,17 +14,14 @@ const useStyles = makeStyles({
     color: "white",
     marginTop: "15px",
     width: "4rem",
-    // border: ".5px solid gray"
   },
   border: {
-    // borderWidth: "thin",
-    // borderColor: "black",
     border: "1px solid lightgray",
     borderRadius: "2px",
     width: "20rem",
     height: "25rem",
     position: "relative",
-    top: "5rem",
+    top: "2rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -32,22 +29,23 @@ const useStyles = makeStyles({
     backgroundColor: "white",
   },
   signUp: {
-    marginTop: "3px",
     border: "1px solid lightgray",
     borderRadius: "2px",
     width: "20rem",
-    height: "5rem",
+    height: "4rem",
     position: "relative",
-    top: "5rem",
+    top: "3rem",
     display: "flex",
     flexDirection: "",
     justifyContent: "center",
     alignItems: "center",
     fontFamily: "Arial",
     fontWeight: "200",
-    // flexDirection: "column",
     backgroundColor: "white",
-  }
+  },
+  textField: {
+    marginTop: "10px"
+  },
 })
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
@@ -106,9 +104,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
             <div>
               <TextField
                 id="standard-basic"
+                className={classes.textField}
                 label="Email"
                 name="email"
-                variant="filled"
+                variant="outlined"
                 type="text"
                 value={email}
                 onChange={updateEmail}
@@ -117,9 +116,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
             <div>
               <TextField
                 label="Password"
+                className={classes.textField}
                 id="standard-basic"
                 name="password"
-                variant="filled"
+                variant="outlined"
                 type="password"
                 value={password}
                 onChange={updatePassword}

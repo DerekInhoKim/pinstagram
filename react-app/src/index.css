@@ -33,8 +33,9 @@ body {
 
 .signin_form_container {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .login_form_container{
@@ -42,6 +43,7 @@ body {
     justify-content: flex-end;
     width: 50%;
     align-content: center;
+    /* margin-bottom: 2rem; */
     /* position: relative;
     top: 20rem;
     left: 10rem;
@@ -59,6 +61,13 @@ body {
 .login_form_header {
     font-family: Pacifico, cursive;
     font-size: 35px;
+    margin-top: 5px;
+}
+
+.signup_form_header {
+    font-family: Pacifico, cursive;
+    font-size: 35px;
+    margin-top: 40px;
 }
 
 
