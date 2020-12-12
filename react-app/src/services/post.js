@@ -11,6 +11,11 @@ export const getPosts = async (userId) => {
 
 }
 
+export const getPinnedPosts = async(userId) => {
+  const response = await fetch(`/api/posts/user/${userId}/pinned`)
+  return await response.json()
+}
+
 export const createPost = async(caption, imageUrl) => {
     const response = await fetch('/api/posts/create', {
       method: 'POST',

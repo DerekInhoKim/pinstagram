@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from app.forms import PostForm
-from app.models import db, Post, User
+from app.models import db, Post, User, Like
 from sqlalchemy.exc import IntegrityError
 from flask_login import login_required, current_user
 
@@ -16,6 +16,11 @@ def getPost(postId):
 @post_routes.route('/user/<int:userId>', methods=['GET'])
 def getPosts(userId):
     posts = Post.query.filter(Post.userId == userId).all()
+    return {'posts': [post.to_dict() for post in posts]}
+
+@post_routes.route('/user/<int:userId>/pinned', methods=['GET'])
+def getPinnedPosts(userId):
+    posts = Post.query.join(Like).filter(Like.userId == userId).all()
     return {'posts': [post.to_dict() for post in posts]}
 
 # Creation of a post

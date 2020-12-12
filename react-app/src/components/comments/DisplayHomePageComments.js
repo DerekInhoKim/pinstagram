@@ -7,7 +7,7 @@ const DisplayHomePageComments = ({comment}) => {
             <Link className="display_comments_router" to={`/user/${comment.user.id}`}>
                 {comment.user.username}
             </Link>
-            <div>{comment.message}</div>
+            <div className="display_comment_comment">{comment.message}</div>
         </div>
     )
 

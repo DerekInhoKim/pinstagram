@@ -7,7 +7,7 @@ const DisplayPostPage = () => {
 
     return (
         <div className='postpage_post_container'>
-                <img className='postpage_post_image' src={post.content} alt="post content"/>
+            <img className='postpage_post_image' src={post.content} alt="post content"/>
             <DisplayPostContent />
         </div>
     )

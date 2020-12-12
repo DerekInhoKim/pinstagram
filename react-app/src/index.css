@@ -61,9 +61,35 @@ body {
 }
 
 .postpage_post_image {
-    max-width: 50%;
-    object-fit: cover;
-    padding-right: 20px;
+    max-width: 60rem;
+    max-height: 100%;
+    border-radius: 2px 2px 0px 0px;
+    /* object-fit: cover; */
+    /* padding-right: 20px; */
+}
+
+.postpage_post_caption {
+    font-weight: bold;
+}
+
+.postpage_post_date {
+    color: lightgray
+}
+
+.postpage_post_header_container {
+    background-color: white;
+    padding: 5px;
+    font-family: Nunito Sans;
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 2px;
+    /* overflow: auto; */
+}
+
+.postpage_post_likes {
+    margin-left: 1rem;
 }
 
 .usercard_container {
@@ -135,20 +161,31 @@ body {
 }
 
 .comment_image {
-    max-width: 50px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
     clip-path: circle();
 }
 
 .postpage_post {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin-top: 2rem;
+    max-height: 90rem;
     justify-content: center;
 }
 
 .postpage_post_container {
     display: flex;
     justify-content: center;
-    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    max-height: 40rem;
+}
+
+.postpage_display_comments {
+    max-height: 20rem;
+    overflow: auto;
 }
 
 .userpage_image {
@@ -164,9 +201,18 @@ body {
 .userpage_image_container {
     position: relative;
     text-align: center;
+    cursor: pointer;
 }
 
 .my_userpage_image_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.userpage_image_text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -184,7 +230,7 @@ body {
 }
 
 .userpage_post_image_container {
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .userpage_post_image{
@@ -197,32 +243,49 @@ body {
 
 .userpage_post_container {
     display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.userpage_post_tabs {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    border-bottom: 1px solid lightgray;
 }
 
 .userpage_container {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     align-items: center;
+}
+
+.userpage_post_component_container {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
 }
 
 .userpage_header_container {
     display: flex;
-    border: 1px solid black;
+    justify-content: center;
     width: 50%;
+    margin-top: 1rem;
+    font-family: Nunito Sans;
 }
 
 .userpage_header_text {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     justify-content: space-around;
     margin-bottom: 30px;
 }
 
+
 .homepage_container {
     display: flex;
-    /* border: 1px solid black; */
     justify-content: center;
 
 }
@@ -238,20 +301,23 @@ body {
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+    margin-top: 2rem;
     margin-right: 1rem;
     width: 70rem;
+    max-width: 70rem;
 }
 
 .homepage_post {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
+    max-width: 42rem;
     align-items: center;
     margin-bottom: 20px;
 }
 
 .homepage_user_container {
     width: 30rem;
+    margin-top: 2rem;
 
 }
 
@@ -271,6 +337,7 @@ body {
     max-height: 40rem;
     max-width: 90%;
     font-family: Nunito Sans;
+    /* overflow-x: visible; */
 }
 
 .display_comments {
@@ -278,7 +345,14 @@ body {
     flex-direction: row;
     align-items: center;
     text-decoration: none;
+    margin-bottom: 1rem;
+    /* overflow: visible; */
+    overflow-wrap: normal;
 }
+
+/* .display_comment_comment {
+    display: block;
+} */
 
 .display_comments_router{
     display: flex;
@@ -299,18 +373,29 @@ body {
     width: 100%;
 }
 
+.navbar_text {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar_discover {
+    margin-right: 3rem;
+}
+
 .comments_post_container {
     max-height: 10rem;
-    overflow-y: auto;
+    overflow: hidden;
+    /* overflow-wrap: break-word; */
 }
 
 .comment_form_container {
     margin-top: 4px;
-
 }
 
 .comment_form {
     display: flex;
+    padding-top: 5px;
+    border-top: 1px solid lightgray
 
 }
 
@@ -328,15 +413,24 @@ body {
     width: 100%;
 }
 
+.navbar_homepage_text {
+    font-size: 30px;
+    font-family: Pacifico, cursive;
+}
+
 .navbar_container {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    /* position: fixed; */
+    justify-content: space-evenly;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
 
 }
 
 .navbar_button_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 20rem;
 }

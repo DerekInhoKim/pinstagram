@@ -2,9 +2,21 @@ import React from "react";
 import { logout } from "../../services/auth";
 import { useDispatch } from 'react-redux';
 import { removeUser } from '../../redux/actions/users'
+import { Button } from '@material-ui/core'
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    buttonStyle: {
+        fontWeight: "bold",
+        color: "lightblue"
+    }
+})
+
 
 const LogoutButton = ({setAuthenticated}) => {
   const dispatch = useDispatch()
+
+  const classes = useStyles()
 
   const onLogout = async (e) => {
     await logout();
@@ -14,7 +26,7 @@ const LogoutButton = ({setAuthenticated}) => {
     dispatch(removeUser())
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <Button className={classes.buttonStyle} variant="outlined" onClick={onLogout}>Logout</Button>;
 };
 
 export default LogoutButton;

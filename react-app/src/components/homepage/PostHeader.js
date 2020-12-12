@@ -7,8 +7,8 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     buttonStyle: {
-        fontEight: "bold",
-        color: "white"
+        fontWeight: "bold",
+        color: "lightblue"
     }
 })
 
@@ -42,8 +42,8 @@ const PostHeader = ({user}) => {
                 <div className="post_header_username">{user.username}</div>
             </Link>
             <div className="post_header_follow">{following ?
-                <Button className={classes.buttonStyle} variant="contained" onClick={handleFollow}>Following</Button> :
-                <Button className={classes.buttonStyle} variant="contained" onClick={handleFollow}>Follow</Button>}
+                <Button className={classes.buttonStyle}  onClick={handleFollow}>Following</Button> :
+                <Button className={classes.buttonStyle}  onClick={handleFollow}>Follow</Button>}
             </div>
         </div>
     )

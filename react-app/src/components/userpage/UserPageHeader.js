@@ -3,12 +3,23 @@ import {useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import {getUser} from '../../services/user'
 import {getPosts} from '../../services/post'
+import {Button} from '@material-ui/core'
 import {getFollowing, getFollowers, isFollowing, followUser} from '../../services/following'
 import emptyPicture from '../../images/blank-profile-picture.png'
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    buttonStyle: {
+        fontWeight: "bold",
+        color: "lightblue"
+    }
+})
 
 const UserPageHeader = ({userId}) => {
     const currentUser = useSelector(state => state.users.user)
     let history = useHistory()
+
+    const classes = useStyles()
 
     const [user, setUser] = useState({})
     const [myPage, setMyPage] = useState(false)
@@ -79,15 +90,17 @@ const UserPageHeader = ({userId}) => {
     return (
         <div className="userpage_header_container">
             <div className="userpage_image_container" >
-                <div className={myPage ? "my_userpage_image_text" : "username_image_text"} >Change Photo</div>
+                {myPage ?
+                <div className="my_userpage_image_text">Change Photo</div> :
+                <div className="my_userpage_image_text"></div>}
                 <img onClick={myPage ? handleProfilePicture : null } className={myPage ? "my_userpage_image" : "userpage_image"} src={user.profilePicture ? user.profilePicture : emptyPicture} alt="user profile photo"/>
             </div>
             <div className="userpage_header_text">
                 <div>
                     {user.username} {myPage ? '' : isFollowingStatus ?
-                    <button onClick={handleFollow}>Following</button> :
-                    <button onClick={handleFollow}>Follow</button>}
-                    {myPage ? <button onClick={handleEdit}>edit</button> : ''}
+                    <Button className={classes.buttonStyle} onClick={handleFollow}>Following</Button> :
+                    <Button className={classes.buttonStyle} onClick={handleFollow}>Follow</Button>}
+                    {myPage ? <Button variant="outlined" onClick={handleEdit}>edit</Button> : ''}
                 </div>
                 <div>
                     posts {posts} followers {followers} following {following}

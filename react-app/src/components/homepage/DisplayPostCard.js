@@ -10,10 +10,19 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import FiberPinIcon from '@material-ui/icons/FiberPin';
+import {makeStyles} from '@material-ui/core'
+
+const useStyles = makeStyles({
+    card: {
+        maxWidth: "60rem",
+    }
+})
 
 const DisplayPost = ({id, caption, content, createdAt, user}) => {
     const currentUser = useSelector(state => state.users.user)
     const currentComments = useSelector(state => state.comments)
+
+    const classes = useStyles()
 
     const [likes, setLikes] = useState([])
     const [userLike, setUserLike] = useState(false)
@@ -82,7 +91,9 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
             </Link>
             <div className="homepage_post_content_container_width">
                 <div className="homepage_post_content_container">
-                    <div className="homepage_post_date">{createdAt}</div>
+                    <div className="homepage_post_date">
+                        {createdAt}
+                    </div>
                     <div className="homepage_post_likes">
                         {likes.length} pins
                         <IconButton>
@@ -92,7 +103,6 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
                         }
                         </IconButton>
                     </div>
-
                     <div className="homepage_post_user_info"><span className="homepage_post_user_title">{user.username}</span> <span className="homepage_post_user_caption">{caption}</span></div>
                     <div className="comments_container">
                         <Link to={`/p/${id}`}>view all {comments.length} comments</Link>

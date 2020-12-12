@@ -9,7 +9,7 @@ const NavBar = ({ setAuthenticated }) => {
     <nav className="nav_container">
       <div className="navbar_container">
         <div className="navbar_homepage_text">
-          <NavLink to="/" exact={true} activeClassName="active">
+          <NavLink className="navbar_text" to="/" exact={true} activeClassName="active">
             Pinstagram
           </NavLink>
         </div>

@@ -5,6 +5,8 @@ import {useSelector} from 'react-redux'
 import {getComments} from '../../services/comments'
 import DisplayComments from '../comments/DisplayComments'
 import CommentForm from '../comments/CommentForm'
+import IconButton from '@material-ui/core/IconButton';
+import FiberPinIcon from '@material-ui/icons/FiberPin';
 
 const DisplayPostContent = () => {
     const currentUser = useSelector(state => state.users.user)
@@ -89,19 +91,21 @@ const DisplayPostContent = () => {
     }
 
     return (
-        <div>
+        <div className="postpage_post_header_container">
             <PostHeader />
             {/* Post caption should be styled seperately. similarly to a comment */}
-            <h1>{post.caption}</h1>
-            <h3>{post.createdAt}</h3>
-            <h3>{likes.length}</h3>
-            <div>
-                {userLike === true ?
-                <button onClick={handleDislike}>Unlike</button> :
-                <button onClick={handleLike}>Like</button>
-                }
+            <div className="postpage_post_caption">{post.caption}</div>
+            <div className="postpage_post_date">{post.createdAt}</div>
+            <div className="postpage_display_comments">{commentComponent}</div>
+            <div className="postpage_post_likes">
+                {likes.length} pins
+                <IconButton>
+                        {userLike === true ?
+                        <FiberPinIcon style={{fill:"red"}} onClick={handleDislike}>unPin</FiberPinIcon> :
+                        <FiberPinIcon style={{fill: "gray"}} onClick={handleLike}>Pin</FiberPinIcon>
+                        }
+                </IconButton>
             </div>
-            <div>{commentComponent}</div>
             <CommentForm postId={post.id}/>
         </div>
     )
