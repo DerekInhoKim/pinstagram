@@ -66,6 +66,7 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
     }
 
     // Used to display each comment
+
     const commentComponent = comments.slice(0,3).map(comment => {
         return (
             <DisplayHomePageComments key={comment.id} comment={comment}/>

@@ -30,7 +30,7 @@ const CommentForm = ({postId}) => {
             <form className="comment_form" onSubmit={handleSubmit}>
                 <TextField className="comment_form_input" onChange={updateMessage} name="comment" value={message} placeholder="Add a comment..."></TextField>
                 <div className="comment_form_button_container">
-                    <Button variant="contained" color="primary">Post</Button>
+                    <Button type='submit' variant="contained" color="primary">Post</Button>
                 </div>
             </form>
         </div>
