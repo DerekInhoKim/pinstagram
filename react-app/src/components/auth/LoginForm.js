@@ -103,6 +103,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
             </div>
             <div>
               <TextField
+                InputProps={{ disableUnderline: true }}
                 id="standard-basic"
                 className={classes.textField}
                 label="Email"
@@ -115,6 +116,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
             </div>
             <div>
               <TextField
+                InputProps={{ disableUnderline: true }}
                 label="Password"
                 className={classes.textField}
                 id="standard-basic"

@@ -3,12 +3,21 @@ import {useSelector, useDispatch} from 'react-redux'
 import {createComment} from '../../services/comments'
 import {addComment} from '../../redux/actions/comments'
 import {Button, TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    button: {
+        fontWeight: 'bold'
+    }
+})
 
 const CommentForm = ({postId}) => {
     const currentUser = useSelector(state => state.users.user)
     const [message, setMessage] = useState('')
     const [errors, setErrors] = useState('')
     const dispatch = useDispatch()
+
+    const classes = useStyles()
 
     const updateMessage = (e) => {
         setMessage(e.target.value)
@@ -28,9 +37,9 @@ const CommentForm = ({postId}) => {
     return (
         <div className="comment_form_container">
             <form className="comment_form" onSubmit={handleSubmit}>
-                <TextField className="comment_form_input" onChange={updateMessage} name="comment" value={message} placeholder="Add a comment..."></TextField>
+                <TextField InputProps={{ disableUnderline: true }} className="comment_form_input" onChange={updateMessage} name="comment" value={message} placeholder="Add a comment..."></TextField>
                 <div className="comment_form_button_container">
-                    <Button type='submit' variant="contained" color="primary">Post</Button>
+                    <Button className={classes.button} type='submit' color="primary">Post</Button>
                 </div>
             </form>
         </div>

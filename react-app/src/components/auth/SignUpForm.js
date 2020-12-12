@@ -121,6 +121,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           <div className={classes.headerText}>Sign up to see photos and pins from your friends.</div>
           <div>
             <TextField
+              InputProps={{ disableUnderline: true }}
               className={classes.textField}
               id="standard-basic"
               label="Full Name"
@@ -134,6 +135,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           </div>
           <div>
             <TextField
+              InputProps={{ disableUnderline: true }}
               className={classes.textField}
               id="standard-basic"
               label="Username"
@@ -146,6 +148,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           </div>
           <div>
             <TextField
+              InputProps={{ disableUnderline: true }}
               id="standard-basic"
               className={classes.textField}
               label="Email"
@@ -158,6 +161,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           </div>
           <div>
             <TextField
+              InputProps={{ disableUnderline: true }}
               className={classes.textField}
               id="standard-basic"
               label="Password"
@@ -170,6 +174,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           </div>
           <div>
             <TextField
+              InputProps={{ disableUnderline: true }}
               id="standard-basic"
               className={classes.textField}
               label="Confirm Password"
