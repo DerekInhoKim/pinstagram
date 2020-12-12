@@ -1,35 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import IconButton from '@material-ui/core/IconButton';
+import ExploreIcon from '@material-ui/icons/Explore';
 
 const NavBar = ({ setAuthenticated }) => {
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav className="nav_container">
+      <div className="navbar_container">
+        <div className="navbar_homepage_text">
           <NavLink to="/" exact={true} activeClassName="active">
-            Home
+            Pinstagram
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/discover" exact={true} activeClassName="active">
-            Discover
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton setAuthenticated={setAuthenticated} />
-        </li>
-      </ul>
+        </div>
+        <div className="navbar_button_container">
+          <div className="navbar_discover">
+            <NavLink to="/discover" exact={true} activeClassName="active">
+              <IconButton>
+                <ExploreIcon/>
+              </IconButton>
+            </NavLink>
+          </div>
+          <div className="logout_button">
+            <LogoutButton setAuthenticated={setAuthenticated} />
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }

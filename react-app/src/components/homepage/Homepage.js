@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import {getFollowingPosts} from '../../services/following'
-import DisplayPost from './DisplayPost'
+import DisplayPostCard from './DisplayPostCard'
 import UserCard from './UserCard'
 
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
 
     const postComponent = posts.map((post) => {
         return (
-            <DisplayPost key={post.id} id={post.id} caption={post.caption} content={post.content} createdAt={post.createdAt} user={post.user}/>
+            <DisplayPostCard key={post.id} id={post.id} caption={post.caption} content={post.content} createdAt={post.createdAt} user={post.user}/>
         )
     })
 

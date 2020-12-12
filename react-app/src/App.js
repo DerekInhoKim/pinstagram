@@ -44,7 +44,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}
@@ -55,24 +54,31 @@ function App() {
         <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </Route>
       <ProtectedRoute path="/user/:userId" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <UserPage />
       </ProtectedRoute>
       <ProtectedRoute path="/post/create" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <CreatePost />
       </ProtectedRoute>
       <ProtectedRoute path="/p/:postId" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <PostPage />
       </ProtectedRoute>
       <ProtectedRoute path="/discover" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <DiscoverPage />
       </ProtectedRoute>
       <ProtectedRoute path="/profilePicture" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <ProfilePictureUpload />
       </ProtectedRoute>
       <ProtectedRoute path="/edit/profile" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <EditProfile />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
         <HomePage/>
       </ProtectedRoute>
     </BrowserRouter>

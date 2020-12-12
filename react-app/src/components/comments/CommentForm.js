@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {createComment} from '../../services/comments'
 import {addComment} from '../../redux/actions/comments'
+import {Button, TextField} from '@material-ui/core';
 
 const CommentForm = ({postId}) => {
     const currentUser = useSelector(state => state.users.user)
@@ -12,7 +13,6 @@ const CommentForm = ({postId}) => {
     const updateMessage = (e) => {
         setMessage(e.target.value)
     }
-
 
     // Handles the submission of the form
     const handleSubmit = async (e) => {
@@ -26,11 +26,14 @@ const CommentForm = ({postId}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="comment"></label>
-            <textarea onChange={updateMessage} name="comment" value={message} placeholder="Add a comment..."></textarea>
-            <button>Post</button>
-        </form>
+        <div className="comment_form_container">
+            <form className="comment_form" onSubmit={handleSubmit}>
+                <TextField className="comment_form_input" onChange={updateMessage} name="comment" value={message} placeholder="Add a comment..."></TextField>
+                <div className="comment_form_button_container">
+                    <Button variant="contained" color="primary">Post</Button>
+                </div>
+            </form>
+        </div>
     )
 }
 

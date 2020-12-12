@@ -2,12 +2,23 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import {isFollowing, followUser} from '../../services/following'
+import {Button} from '@material-ui/core'
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    buttonStyle: {
+        fontEight: "bold",
+        color: "white"
+    }
+})
 
 // Different than Post Page Post header in the way that the user is being passed as a prop
 const PostHeader = ({user}) => {
     const currentUser = useSelector(state => state.users.user)
     const [following, setFollowing] = useState(false)
     const [isFollowingState, setIsFollowingState] = useState(false)
+
+    const classes = useStyles()
 
     // Sends a request to see if a user is following the user
     useEffect(() => {
@@ -26,13 +37,14 @@ const PostHeader = ({user}) => {
 
     return (
         <div className="post_header">
-            <Link to={`/user/${user.id}`}>
+            <Link className="post_header_link" to={`/user/${user.id}`}>
                 <img className="post_header_image" src={user.profilePicture} alt=""/>
                 <div className="post_header_username">{user.username}</div>
             </Link>
-            <span>{following ?
-            <button onClick={handleFollow}>Following</button> :
-            <button onClick={handleFollow}>Follow</button>}</span>
+            <div className="post_header_follow">{following ?
+                <Button className={classes.buttonStyle} variant="contained" onClick={handleFollow}>Following</Button> :
+                <Button className={classes.buttonStyle} variant="contained" onClick={handleFollow}>Follow</Button>}
+            </div>
         </div>
     )
 }
