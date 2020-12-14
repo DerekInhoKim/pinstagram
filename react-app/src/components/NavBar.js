@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import IconButton from '@material-ui/core/IconButton';
 import ExploreIcon from '@material-ui/icons/Explore';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const NavBar = ({ setAuthenticated }) => {
   return (
@@ -14,6 +15,13 @@ const NavBar = ({ setAuthenticated }) => {
           </NavLink>
         </div>
         <div className="navbar_button_container">
+          <div>
+          <NavLink to="/post/create" exact={true} activeClassName="active">
+              <IconButton>
+                <AddBoxIcon/>
+              </IconButton>
+            </NavLink>
+          </div>
           <div className="navbar_discover">
             <NavLink to="/discover" exact={true} activeClassName="active">
               <IconButton>
