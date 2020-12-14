@@ -31,7 +31,7 @@ def deleteLike():
     postId = req_data['postId']
     userId = req_data['userId']
 
-    like = Like.query.filter(Like.postId == postId and Like.userId == userId).one()
+    like = Like.query.filter(Like.postId == postId).filter(Like.userId == userId).one()
 
     db.session.delete(like)
     db.session.commit()
@@ -51,7 +51,7 @@ def getPostLikes(postId):
 # This route will return a boolean whether or not if a user likes a post
 @likes_routes.route('/<int:userId>/post/<int:postId>', methods=['GET'])
 def getUserLiked(userId, postId):
-    likes = Like.query.filter(Like.postId == postId and Like.userId == userId).count()
+    likes = Like.query.filter(Like.postId == postId).filter(Like.userId == userId).count()
     if likes > 0:
         return {'likes': True}
     else:
