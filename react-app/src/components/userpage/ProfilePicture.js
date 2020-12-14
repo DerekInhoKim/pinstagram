@@ -3,6 +3,8 @@ import {useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import {uploadImage} from '../../services/post'
 import {setPicture} from '../../services/user'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
 
 const ProfilePictureUpload = () => {
     const currentUser = useSelector(state => state.users.user)
@@ -31,12 +33,19 @@ const ProfilePictureUpload = () => {
     }
 
     return (
-        <div className="modal">
-            <form encType='multipart/formdata' onSubmit={submitProfilePicture}>
-                <label htmlFor="user_file">Upload Your File</label>
-                <input type="file" name="user_file" required onChange={setImageHelper}/>
-                <button type="submit">Upload</button>
-            </form>
+        <div className="update_profile_picture_container">
+            <div className="update_profile_picture_center">
+                <div className="update_profile_picture_header">
+                    Update Profile Picture
+                </div>
+                <div className="update_profile_picture_title">
+                    choose a photo to upload
+                </div>
+                <form className="update_profile_picture_form" encType='multipart/formdata' onSubmit={submitProfilePicture}>
+                    <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
+                    <Button color="primary" variant="contained" type="submit">Upload</Button>
+                </form>
+            </div>
         </div>
     )
 }

@@ -53,6 +53,7 @@ const EditProfile = () => {
               name="fullname"
               onChange={updateFullname}
               value={fullName}
+              fullWidth
             />
           </div>
           <div className="edit_form_input">
@@ -64,6 +65,7 @@ const EditProfile = () => {
               name="username"
               onChange={updateUsername}
               value={userName}
+              fullWidth
             />
           </div>
           <div className="edit_form_input">
@@ -80,6 +82,7 @@ const EditProfile = () => {
               defaultValue="About me..."
               value={about}
               className="edit_about"
+              fullWidth
             />
           </div>
           <div>
