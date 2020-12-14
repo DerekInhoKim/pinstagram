@@ -515,6 +515,7 @@ body {
 .navbar_container {
     display: flex;
     width: 100%;
+    height: 4rem;
     /* position: fixed; */
     justify-content: space-evenly;
     background-color: white;
@@ -576,6 +577,7 @@ body {
 
 .edit_button {
     width: 10rem;
+    /* font-weight: bold; */
     /* margin-bottom: 10rem; */
 }
 

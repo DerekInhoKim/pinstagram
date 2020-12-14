@@ -60,7 +60,7 @@ const CreatePost = () => {
                         />
                     {/* </div> */}
                     <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
-                    <Button color="primary" variant="contained" type="submit">Upload</Button>
+                    <Button className="edit_button" color="primary" variant="contained" type="submit">Post</Button>
                 </form>
             </div>
         </div>

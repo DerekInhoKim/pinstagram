@@ -43,7 +43,7 @@ const ProfilePictureUpload = () => {
                 </div>
                 <form className="update_profile_picture_form" encType='multipart/formdata' onSubmit={submitProfilePicture}>
                     <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
-                    <Button color="primary" variant="contained" type="submit">Upload</Button>
+                    <Button className="edit_button" color="primary" variant="contained" type="submit">Upload</Button>
                 </form>
             </div>
         </div>
