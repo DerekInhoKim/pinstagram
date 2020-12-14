@@ -37,7 +37,7 @@ def seed_users():
         User(
             fullname='Demo User',
             username='Demo',
-            email="demo@pixelgram.com",
+            email="demo@pinstagram.com",
             hashed_password="pbkdf2:sha256:150000$7Tu6i8SA$7ebf0dfa99e00bf682ba21f83f0daf9811eaacd0c39eb103e143221727da6461",
             about="This is a user for demonstration purposes",
             profilePicture='https://i.redd.it/cosm6mk0jg941.jpg'),

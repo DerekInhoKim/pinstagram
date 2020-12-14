@@ -2,6 +2,17 @@ import React, {useState, useEffect} from 'react'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {isFollowing, followUser} from '../../services/following'
+import {Button} from '@material-ui/core'
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    buttonStyle: {
+        fontWeight: "bold",
+        color: "lightblue",
+        marginLeft: "1rem"
+    }
+})
+
 
 const PostHeader = () => {
     const currentUser = useSelector(state => state.users.user)
@@ -9,6 +20,7 @@ const PostHeader = () => {
     const [following, setFollowing] = useState(false)
     const [isFollowingState, setIsFollowingState] = useState(false)
 
+    const classes = useStyles()
 
     useEffect(() => {
         (async () => {
@@ -28,11 +40,14 @@ const PostHeader = () => {
         <div className="post_header">
             <Link to={`/user/${postUser.id}`}>
                 <img className="post_header_image" src={postUser.profilePicture} alt=""/>
-                <span className="post_header_username">{postUser.username}</span>
             </Link>
-            <span>{following ?
-            <button onClick={handleFollow}>Following</button> :
-            <button onClick={handleFollow}>Follow</button>}</span>
+            <Link to={`/user/${postUser.id}`}>
+                <div className="post_header_username">{postUser.username}</div>
+            </Link>
+            <div>{following ?
+            <Button className={classes.buttonStyle} onClick={handleFollow}>Following</Button> :
+            <Button className={classes.buttonStyle} onClick={handleFollow}>Follow</Button>}
+            </div>
         </div>
     )
 }

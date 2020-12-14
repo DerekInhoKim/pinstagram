@@ -26,9 +26,9 @@ const DiscoverPage = () => {
     })
 
     return (
-        <div>
-            <h1>Discover New Posts...</h1>
-            <div className="userpage_post_container">
+        <div className="discover_page_container">
+            {/* <div className="discover_page_header">Discover</div> */}
+            <div className="discover_page_post_container">
                 {postComponent}
             </div>
         </div>

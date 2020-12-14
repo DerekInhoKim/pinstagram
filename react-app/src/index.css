@@ -17,7 +17,8 @@ body {
     border-bottom: 1px solid lightgray;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
     /* padding: 7px; */
     /* justify-content: center; */
@@ -64,6 +65,7 @@ body {
     max-width: 60rem;
     max-height: 100%;
     border-radius: 2px 2px 0px 0px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
     /* object-fit: cover; */
     /* padding-right: 20px; */
 }
@@ -85,6 +87,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 2px;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
     /* overflow: auto; */
 }
 
@@ -179,7 +182,7 @@ body {
     display: flex;
     justify-content: center;
     border-radius: 2px;
-    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    /* box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12); */
     max-height: 40rem;
 }
 
@@ -436,4 +439,75 @@ body {
     justify-content: flex-end;
     align-items: center;
     width: 20rem;
+}
+
+.edit_form_container {
+    display: flex;
+    /* border: 1px solid black; */
+    justify-content: space-evenly;
+    font-family: Nunito Sans;
+
+}
+
+.edit_form_center {
+    display: flex;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    margin-top: 10rem;
+    height: 40rem;
+    width: 30rem;
+}
+
+.edit_form_header {
+    font-size: larger;
+    /* margin-bottom: 10rem; */
+}
+
+.edit_about {
+    width: 20rem;
+    height: 10rem;
+}
+
+.edit_form_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.edit_form_input {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.edit_button {
+    width: 10rem;
+    /* margin-bottom: 10rem; */
+}
+
+.discover_page_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid black; */
+    font-family: Nunito Sans;
+}
+
+.discover_page_post_container{
+    /* border: 1px solid black; */
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 60rem;
+}
+
+.discover_page_header {
+    margin-top: 3rem;
+    font-weight: bold;
+    color: gray;
+    font-size: 30px;
 }
