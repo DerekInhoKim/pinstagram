@@ -42,6 +42,7 @@ const useStyles = makeStyles({
     fontFamily: "Arial",
     fontWeight: "200",
     backgroundColor: "white",
+    marginBottom: "1rem"
   },
   textField: {
     marginTop: "10px"
@@ -81,6 +82,16 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   const handleSignUp = () => {
     history.push("/sign-up")
+  }
+
+  const handleDemo = async () => {
+    const user = await login("demo@pinstagram.com", "pixel22");
+    if (!currentUser){
+      dispatch(setUser(user))
+    }
+    if (!user.errors) {
+      setAuthenticated(true);
+    }
   }
 
   if (authenticated) {
@@ -132,6 +143,9 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           </form>
           <div className={classes.signUp}>
             Don't have an account? <Button onClick={handleSignUp} color="primary">Sign Up</Button>
+          </div>
+          <div className={classes.signUp}>
+            Log in as a Demo User? <Button onClick={handleDemo} color="primary">Try Me</Button>
           </div>
         </Container>
       </div>
