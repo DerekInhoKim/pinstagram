@@ -8,6 +8,7 @@ import HomePage from './components/homepage/Homepage'
 import PostPage from './components/postpage/Postpage'
 import CreatePost from './components/createpost/CreatePost'
 import UserPage from './components/userpage/UserPage'
+import Camera from './components/camera/Camera'
 import DiscoverPage from './components/discoverpage/DiscoverPage'
 import ProfilePictureUpload from './components/userpage/ProfilePicture'
 import EditProfile from './components/userpage/EditProfile'
@@ -56,6 +57,10 @@ function App() {
       <ProtectedRoute path="/user/:userId" exact={true} authenticated={authenticated}>
         <NavBar setAuthenticated={setAuthenticated} />
         <UserPage />
+      </ProtectedRoute>
+      <ProtectedRoute path="/camera" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
+        <Camera />
       </ProtectedRoute>
       <ProtectedRoute path="/post/create" exact={true} authenticated={authenticated}>
         <NavBar setAuthenticated={setAuthenticated} />
