@@ -44,7 +44,7 @@ const WebcamComponent = () => {
             </div>
             <div>
                 <form encType='multipart/formdata'>
-                    <TextField
+                    {/* <TextField
                             name='caption'
                             type='text'
                             label="Caption"
@@ -56,7 +56,7 @@ const WebcamComponent = () => {
                             fullWidth
                             />
                     <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
-                    <Button className="edit_button" color="primary" variant="contained" type="submit">Post</Button>
+                    <Button className="edit_button" color="primary" variant="contained" type="submit">Post</Button> */}
                 </form>
             </div>
 
