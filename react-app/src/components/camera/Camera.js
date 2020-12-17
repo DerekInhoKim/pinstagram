@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback} from "react";
+import React, {useState, useRef, useCallback, useEffect} from "react";
 import Webcam from "react-webcam";
 import {useSelector} from 'react-redux'
 import Button from '@material-ui/core/Button'
@@ -15,17 +15,29 @@ const WebcamComponent = () => {
     const webcamRef = useRef(null)
     const [imgSrc, setImgSrc] = useState(null)
     const [file, setFile] = useState({})
+    const [caption, setCaption] = useState("")
 
     const capture = useCallback(
         () => {
-            setImgSrc(webcamRef.current.getScreenshot()
-            )
+            setImgSrc(webcamRef.current.getScreenshot())
         },
         [webcamRef]
     )
 
-    if(imgSrc){
-        console.log(imgSrc)
+    useEffect(() => {
+        if(imgSrc){
+            setCaption(imgSrc.slice(30, 50) + imgSrc.slice(60, 80))
+
+        }
+    },[imgSrc])
+
+    // if(imgSrc){
+    //     // console.log(imgSrc)
+    //     // setCaption(imgSrc.slice(0, 20))
+    // }
+
+    if(caption){
+        console.log(caption)
     }
 
     return (
@@ -44,18 +56,17 @@ const WebcamComponent = () => {
             </div>
             <div>
                 <form encType='multipart/formdata'>
-                    {/* <TextField
+                    <TextField
                             name='caption'
                             type='text'
                             label="Caption"
                             variant="outlined"
                             placeholder='Tell us about your image...'
                             value={caption}
-                            onChange={updateValue(setCaption)}
                             required
                             fullWidth
                             />
-                    <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
+                    {/* <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
                     <Button className="edit_button" color="primary" variant="contained" type="submit">Post</Button> */}
                 </form>
             </div>
