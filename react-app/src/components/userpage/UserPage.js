@@ -3,17 +3,19 @@ import {useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import UserPageHeader from './UserPageHeader'
 import UserPagePosts from './UserPagePosts'
+import NavBar from '../NavBar'
 
 
-const UserPage = () => {
+const UserPage = ({setAuthenticated}) => {
     const {userId} = useParams()
 
     return (
-        <div className="userpage_container">
-            <UserPageHeader userId={userId} />
-            <UserPagePosts userId={userId}/>
-            {/* User's posts will go here */}
-            {/* <h1>{userId}</h1> */}
+        <div className="top_userpage_container">
+            <NavBar setAuthenticated={setAuthenticated}/>
+            <div className="userpage_container">
+                <UserPageHeader userId={userId} />
+                <UserPagePosts userId={userId}/>
+            </div>
         </div>
     )
 }

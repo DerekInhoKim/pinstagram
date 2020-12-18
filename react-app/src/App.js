@@ -55,8 +55,8 @@ function App() {
         <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </Route>
       <ProtectedRoute path="/user/:userId" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <UserPage />
+        {/* <NavBar setAuthenticated={setAuthenticated} /> */}
+        <UserPage setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/camera" exact={true} authenticated={authenticated}>
         <NavBar setAuthenticated={setAuthenticated} />

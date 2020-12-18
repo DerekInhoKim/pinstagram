@@ -37,9 +37,7 @@ const WebcamComponent = () => {
         (async () => {
             if(imgSrc && posts){
                 // await setPosts(posts + 1)
-                debugger
                 setFileName(currentUser.fullname + posts.toString())
-                debugger
             }
 
         })()
@@ -49,7 +47,7 @@ const WebcamComponent = () => {
         if(fileName){
             setImage(dataURLtoFile(imgSrc, fileName))
         }
-    }, [fileName])
+    }, [fileName, imgSrc])
 
     // This file takes the base64 encoded data from the webcam, and converts it to a file to send to S3.
     const dataURLtoFile = (dataurl, filename) => {
