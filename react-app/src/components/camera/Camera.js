@@ -36,9 +36,9 @@ const WebcamComponent = () => {
     //     // setCaption(imgSrc.slice(0, 20))
     // }
 
-    if(caption){
-        console.log(caption)
-    }
+    // if(caption){
+    //     console.log(caption)
+    // }
 
     return (
         <div>
