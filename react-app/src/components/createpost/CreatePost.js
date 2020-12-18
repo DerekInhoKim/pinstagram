@@ -24,6 +24,7 @@ const CreatePost = () => {
         const data = new FormData();
 
         data.append("file", image)
+        console.log(image)
 
         const newImage = await uploadImage(data)
         const imageUrl = newImage.output
