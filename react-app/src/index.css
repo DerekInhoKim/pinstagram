@@ -545,9 +545,9 @@ body {
 
 }
 
-.active {
+/* .active {
     border: 1px solid black;
-}
+} */
 
 .edit_form_center {
     display: flex;
