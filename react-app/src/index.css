@@ -553,7 +553,7 @@ body {
     justify-content: center;
     /* border: 1px solid black; */
     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    margin-top: 10rem;
+    margin-top: 3rem;
     height: 40rem;
     width: 30rem;
 }
@@ -598,7 +598,7 @@ body {
 
 .discover_page_post_container{
     /* border: 1px solid black; */
-    margin-top: 5rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

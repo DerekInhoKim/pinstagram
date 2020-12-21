@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux'
 import {getFollowingPosts} from '../../services/following'
 import DisplayPostCard from './DisplayPostCard'
 import UserCard from './UserCard'
+import NavBar from '../NavBar'
 
-const HomePage = () => {
+
+const HomePage = ({setAuthenticated}) => {
     const currentUser = useSelector(state => state.users.user)
     const [posts, setPosts] = useState([])
 
@@ -29,13 +31,16 @@ const HomePage = () => {
         )
     }
     return (
-        <div className="homepage_container">
-            <div className="homepage_center_container">
-                <div className="homepage_post_container">
-                    {postComponent}
-                </div>
-                <div className="homepage_user_container">
-                    <UserCard />
+        <div className="top_userpage_container">
+            <NavBar setAuthenticated={setAuthenticated} />
+            <div className="homepage_container">
+                <div className="homepage_center_container">
+                    <div className="homepage_post_container">
+                        {postComponent}
+                    </div>
+                    <div className="homepage_user_container">
+                        <UserCard />
+                    </div>
                 </div>
             </div>
         </div>

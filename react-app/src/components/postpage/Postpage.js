@@ -5,8 +5,9 @@ import {setPostStore} from '../../redux/actions/posts'
 import {setPostUser} from '../../redux/actions/postUser'
 import DisplayPostPage from './DisplayPostPage'
 import {getPost} from '../../services/post'
+import NavBar from '../NavBar'
 
-const PostPage = () => {
+const PostPage = ({setAuthenticated}) => {
     const postStore = useSelector(state => state.posts)
     const {postId} = useParams();
     const dispatch = useDispatch();
@@ -14,7 +15,6 @@ const PostPage = () => {
     // Use effect will set the local state of the post that we're looking at
     useEffect(() => {
         (async () => {
-            // debugger
             const post = await getPost(postId)
             if (post){
                 dispatch(setPostStore(post.post))
@@ -26,9 +26,11 @@ const PostPage = () => {
 
 
     return (
-        <div className='postpage_post'>
-            <DisplayPostPage/>
-            {/* Consider rendering more posts from this user */}
+        <div className="top_userpage_container">
+            <NavBar setAuthenticated={setAuthenticated} />
+            <div className='postpage_post'>
+                <DisplayPostPage/>
+            </div>
         </div>
     )
 }

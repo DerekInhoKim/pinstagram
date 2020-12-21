@@ -55,36 +55,26 @@ function App() {
         <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </Route>
       <ProtectedRoute path="/user/:userId" exact={true} authenticated={authenticated}>
-        {/* <NavBar setAuthenticated={setAuthenticated} /> */}
         <UserPage setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
-      <ProtectedRoute path="/camera" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <Camera />
-      </ProtectedRoute>
       <ProtectedRoute path="/post/create" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <CreatePost />
+        <CreatePost setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/p/:postId" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <PostPage />
+        <PostPage setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/discover" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <DiscoverPage />
+        <DiscoverPage setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/profilePicture" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <ProfilePictureUpload />
+        <ProfilePictureUpload setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/edit/profile" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <EditProfile />
+        <EditProfile setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <NavBar setAuthenticated={setAuthenticated} />
-        <HomePage/>
+        {/* <NavBar setAuthenticated={setAuthenticated} /> */}
+        <HomePage setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
     </BrowserRouter>
   );

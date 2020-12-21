@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {getNotFollowingPosts} from '../../services/following'
 import {useSelector} from 'react-redux'
+import NavBar from '../NavBar'
 
-const DiscoverPage = () => {
+const DiscoverPage = ({setAuthenticated}) => {
     const currentUser = useSelector(state => state.users.user)
     const following = useSelector(state => state.following)
     const [posts, setPosts] = useState([])
@@ -26,10 +27,12 @@ const DiscoverPage = () => {
     })
 
     return (
-        <div className="discover_page_container">
-            {/* <div className="discover_page_header">Discover</div> */}
-            <div className="discover_page_post_container">
-                {postComponent}
+        <div className="top_userpage_container">
+            <NavBar setAuthenticated={setAuthenticated}/>
+            <div className="discover_page_container">
+                <div className="discover_page_post_container">
+                    {postComponent}
+                </div>
             </div>
         </div>
     )

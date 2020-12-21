@@ -5,8 +5,9 @@ import {uploadImage} from '../../services/post'
 import {setPicture} from '../../services/user'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
+import NavBar from '../NavBar'
 
-const ProfilePictureUpload = () => {
+const ProfilePictureUpload = ({setAuthenticated}) => {
     const currentUser = useSelector(state => state.users.user)
     const [image, setImage] = useState({})
     let history = useHistory()
@@ -33,19 +34,23 @@ const ProfilePictureUpload = () => {
     }
 
     return (
-        <div className="update_profile_picture_container">
-            <div className="update_profile_picture_center">
-                <div className="update_profile_picture_header">
-                    Update Profile Picture
+        <div className="top_userpage_container">
+            <NavBar setAuthenticated={setAuthenticated}/>
+            <div className="update_profile_picture_container">
+                <div className="update_profile_picture_center">
+                    <div className="update_profile_picture_header">
+                        Update Profile Picture
+                    </div>
+                    <div className="update_profile_picture_title">
+                        choose a photo to upload
+                    </div>
+                    <form className="update_profile_picture_form" encType='multipart/formdata' onSubmit={submitProfilePicture}>
+                        <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
+                        <Button className="edit_button" color="primary" variant="contained" type="submit">Upload</Button>
+                    </form>
                 </div>
-                <div className="update_profile_picture_title">
-                    choose a photo to upload
-                </div>
-                <form className="update_profile_picture_form" encType='multipart/formdata' onSubmit={submitProfilePicture}>
-                    <TextField fullWidth variant="outlined" type="file" name="user_file" required onChange={setImageHelper}/>
-                    <Button className="edit_button" color="primary" variant="contained" type="submit">Upload</Button>
-                </form>
             </div>
+
         </div>
     )
 }
