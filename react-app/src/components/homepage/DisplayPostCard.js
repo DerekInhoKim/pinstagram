@@ -11,6 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import FiberPinIcon from '@material-ui/icons/FiberPin';
 import {makeStyles} from '@material-ui/core'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const useStyles = makeStyles({
     card: {
@@ -92,7 +93,7 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
             <div className="homepage_post_content_container_width">
                 <div className="homepage_post_content_container">
                     <div className="homepage_post_date">
-                        {createdAt}
+                        {formatDistanceToNow(new Date(createdAt))} ago
                     </div>
                     <div className="homepage_post_likes">
                         {likes.length} pins
@@ -105,7 +106,11 @@ const DisplayPost = ({id, caption, content, createdAt, user}) => {
                     </div>
                     <div className="homepage_post_user_info"><span className="homepage_post_user_title">{user.username}</span> <span className="homepage_post_user_caption">{caption}</span></div>
                     <div className="comments_container">
-                        <Link to={`/p/${id}`}>view all {comments.length} comments</Link>
+                        <Link to={`/p/${id}`}>
+                            <div className="comment_total_link">
+                                view all {comments.length} comments
+                            </div>
+                        </Link>
                         <div className="comments_post_container">{commentComponent}</div>
                         <CommentForm postId={id}/>
                     </div>

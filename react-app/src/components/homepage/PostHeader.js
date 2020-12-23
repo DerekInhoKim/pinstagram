@@ -8,7 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles({
     buttonStyle: {
         fontWeight: "bold",
-        color: "lightblue"
+        color: "black"
     }
 })
 
