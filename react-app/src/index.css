@@ -40,6 +40,7 @@ a {
     font-weight: bold;
     font-family: Nunito Sans;
     margin-left: 2rem;
+    color: black;
 }
 
 .post_header_follow {
@@ -60,11 +61,13 @@ a {
     color: gray;
     font-family: Nunito Sans;
     margin-top: 1rem;
+    cursor: default;
 }
 
 .homepage_post_likes {
     font-weight: bold;
     font-family: Nunito Sans;
+    cursor: default;
 }
 
 .postpage_post_image {
@@ -433,6 +436,7 @@ a {
 .homepage_post_user_info {
     font-family: Nunito Sans;
     margin-bottom: 1rem;
+    cursor: default;
 }
 
 .comments_container {
@@ -455,9 +459,9 @@ a {
     overflow-wrap: normal;
 }
 
-/* .display_comment_comment {
-    display: block;
-} */
+.display_comment_comment {
+    cursor: default;
+}
 
 .comment_total_link {
     font-size: 12px;
