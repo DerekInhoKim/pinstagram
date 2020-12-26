@@ -21,7 +21,6 @@ const WebcamComponent = () => {
     const [caption, setCaption] = useState("")
     const [redirect, setRedirect] = useState(false)
     const [posts, setPosts] = useState(0)
-    const [test, setTest] = useState("testing now")
 
     useEffect(() => {
         (async () => {
@@ -36,7 +35,6 @@ const WebcamComponent = () => {
     useEffect(() => {
         (async () => {
             if(imgSrc && posts){
-                // await setPosts(posts + 1)
                 setFileName(currentUser.fullname + posts.toString())
             }
 
@@ -72,15 +70,12 @@ const WebcamComponent = () => {
     const capture = useCallback(
         () => {
             setImgSrc(webcamRef.current.getScreenshot())
-            // console.log("No posts", posts)
-            // console.log(test)
-            // setImagePreview(webcamRef.current.getScreenshot())
+
         },[webcamRef])
 
     const submitImagePost = async (e) => {
         e.preventDefault();
         const data = new FormData();
-        // debugger
         data.append("file", image)
         console.log(image)
 
@@ -100,9 +95,6 @@ const WebcamComponent = () => {
         return <Redirect to={`/`} />
     }
 
-    // if(posts !== 0){
-    //     console.log("posts here, ", posts)
-    // }
 
     return (
         <div>
@@ -139,6 +131,8 @@ const WebcamComponent = () => {
             {imgSrc && (
                 <img
                 src={imgSrc}
+                // height={300}
+                // width={300}
                 />
             )}
             </div>

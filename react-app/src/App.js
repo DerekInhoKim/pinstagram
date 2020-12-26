@@ -8,7 +8,7 @@ import HomePage from './components/homepage/Homepage'
 import PostPage from './components/postpage/Postpage'
 import CreatePost from './components/createpost/CreatePost'
 import UserPage from './components/userpage/UserPage'
-import Camera from './components/camera/Camera'
+import Camera from './components/createpost/Camera'
 import DiscoverPage from './components/discoverpage/DiscoverPage'
 import ProfilePictureUpload from './components/userpage/ProfilePicture'
 import EditProfile from './components/userpage/EditProfile'
@@ -18,6 +18,7 @@ import {getUserFollowers} from './services/user'
 import {setFollowers} from './redux/actions/followers'
 import {setFollowing} from './redux/actions/following'
 import {setUser} from './redux/actions/users'
+import WebcamComponent from "./components/createpost/Camera";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -73,7 +74,6 @@ function App() {
         <EditProfile setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        {/* <NavBar setAuthenticated={setAuthenticated} /> */}
         <HomePage setAuthenticated={setAuthenticated}/>
       </ProtectedRoute>
     </BrowserRouter>

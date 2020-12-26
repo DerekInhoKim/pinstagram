@@ -4,12 +4,14 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import {uploadImage, createPost} from '../../services/post'
 import NavBar from '../NavBar'
+import WebcamComponent from './Camera'
 
 const CreatePost = ({setAuthenticated}) => {
 
     const [caption, setCaption] = useState('');
     const [image, setImage] = useState({})
     const [redirect, setRedirect] = useState(false)
+    const [postType, setPostType] = useState("upload")
 
     const updateValue = (setfunc) => (e) => {
         setfunc(e.target.value)
@@ -18,6 +20,14 @@ const CreatePost = ({setAuthenticated}) => {
     const setImageHelper = (e) => {
         setImage(e.target.files[0])
 
+    }
+
+    const setUploadPostType = () => {
+        setPostType("upload")
+    }
+
+    const setCameraPostType = () => {
+        setPostType("camera")
     }
 
     const submitImagePost = async (e) => {
@@ -41,6 +51,27 @@ const CreatePost = ({setAuthenticated}) => {
         return <Redirect to={`/`} />
     }
 
+    if(postType === "camera"){
+        return (
+            <div className="top_userpage_container">
+            <NavBar setAuthenticated={setAuthenticated}/>
+            <div className="createpost_container">
+                <div className="createpost_container_center">
+                    <div className="createpost_header">
+                        Create Post
+                    </div>
+                    <div className="createpost_type_button">
+                        <Button onClick={setUploadPostType} variant="contained" color="primary">Upload Image</Button>
+                        <Button onClick={setCameraPostType} variant="contained" color="primary">Take Photo</Button>
+                    </div>
+                </div>
+            </div>
+            <WebcamComponent />
+
+        </div>
+        )
+    }
+
     return (
         <div className="top_userpage_container">
             <NavBar setAuthenticated={setAuthenticated}/>
@@ -48,6 +79,10 @@ const CreatePost = ({setAuthenticated}) => {
                 <div className="createpost_container_center">
                     <div className="createpost_header">
                         Create Post
+                    </div>
+                    <div className="createpost_type_button">
+                        <Button onClick={setUploadPostType} variant="contained" color="primary">Upload Image</Button>
+                        <Button onClick={setCameraPostType} variant="contained" color="primary">Take Photo</Button>
                     </div>
                     <form encType='multipart/formdata' onSubmit={submitImagePost} className='submit_form'>
                         {/* <div> */}
