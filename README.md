@@ -1,5 +1,11 @@
 **Developer** Derek Kim
 
+**GITHUB STATUS UPDATE**
+* Due to a corruption of git files, all changes to the Pinstagram project will be moved to the github page linked below. Apologies for the inconvenience, and thank you for understanding.
+
+https://github.com/DerekInhoKim/pinstagram-v2
+
+
 **Description**
 * Pixelgram is a web application where users are free to create posts which are drawn by a user using a javascript canvas.
 The canvas is configured to be a 32 x 32 blocks which act as pixels, to reinforce the pixel art style of drawing.
